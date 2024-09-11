@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-color: #e0f7fa;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .search-filter-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+
+        .filter-cgpa {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        .filter-cgpa:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Database</h1>
+
+    <div class="search-filter-container">
+        <input type="text" id="searchBar" placeholder="Search by Name or Student ID" onkeyup="searchFunction()">
+        <input type="number" id="cgpaFilter" placeholder="Enter CGPA" min="0" max="10" step="0.01">
+        <button class="filter-cgpa" onclick="filterCgpa()">Filter by CGPA</button>
+    </div>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+                <th>Section</th>
+                <th>Branch</th>
+                <th>Technical Skills</th>
+                <th>CGPA</th>
+                <th>Mobile</th>
+                <th>Year of Joining</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.student_id }}</td>
+                <td>{{ student.section }}</td>
+                <td>{{ student.branch }}</td>
+                <td>{{ student.skills }}</td>
+                <td>{{ student.cgpa }}</td>
+                <td>{{ student.mobile }}</td>
+                <td>{{ student.joining_year }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" style="text-align:center;">No students found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        // Search function for filtering by name or student ID
+        function searchFunction() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let table = document.getElementById('studentTable');
+            let rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                let name = rows[i].getElementsByTagName('td')[0].innerText.toLowerCase();
+                let studentId = rows[i].getElementsByTagName('td')[1].innerText.toLowerCase();
+
+                if (name.includes(input) || studentId.includes(input)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+
+        // Filter function for filtering by CGPA
+        function filterCgpa() {
+            let input = parseFloat(document.getElementById('cgpaFilter').value);
+            let table = document.getElementById('studentTable');
+            let rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                let cgpa = parseFloat(rows[i].getElementsByTagName('td')[5].innerText);
+
+                if (!isNaN(input) && cgpa >= input) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

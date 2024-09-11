@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            background-color: #f0f4f7;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .success-message {
+            text-align: center;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <div class="container">
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="student_id">Student ID</label>
+            <input type="text" id="student_id" name="student_id" required>
+
+            <label for="section">Section</label>
+            <input type="text" id="section" name="section" required>
+
+            <label for="branch">Branch</label>
+            <input type="text" id="branch" name="branch" required>
+
+            <label for="skills">Technical Skills</label>
+            <input type="text" id="skills" name="skills" required>
+
+            <label for="cgpa">CGPA</label>
+            <input type="number" id="cgpa" name="cgpa" step="0.01" min="0" max="10" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+
+            <label for="joining_year">Year of Joining</label>
+            <input type="number" id="joining_year" name="joining_year" min="2000" max="2100" required>
+
+            <input type="submit" value="Register">
+        </form>
+
+        {% if success %}
+        <div class="success-message">
+            <p>Student registered successfully!</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

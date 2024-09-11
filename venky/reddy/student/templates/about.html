@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Geethanjali Institute of Science and Technology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1000px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .highlight {
+            color: #16a085;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>About Geethanjali Institute of Science and Technology</h1>
+
+    <div class="section">
+        <h2>State-of-the-Art Infrastructure</h2>
+        <p>Geethanjali Institute of Science and Technology boasts a modern, well-equipped campus that spans over 50 acres. The institution is built to provide students with an environment conducive to learning and innovation. Classrooms are equipped with <span class="highlight">smart boards</span>, comfortable seating, and ample natural light, fostering an ideal academic atmosphere.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Infrastructure+Image" alt="Campus Infrastructure">
+    </div>
+
+    <div class="section">
+        <h2>High-Speed Wi-Fi Facilities</h2>
+        <p>The entire campus is Wi-Fi enabled, ensuring that students have access to the internet for academic and personal needs. With speeds up to <span class="highlight">100 Mbps</span>, the Wi-Fi service allows students to stay connected, complete research, and access learning materials from anywhere on campus.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Wi-Fi+Facilities+Image" alt="Wi-Fi Facilities">
+    </div>
+
+    <div class="section">
+        <h2>Comprehensive Library</h2>
+        <p>The library at Geethanjali Institute offers a vast collection of books, journals, and digital resources. With over <span class="highlight">50,000 books</span> and access to online databases, students can engage in in-depth research and learning. The library also has a quiet reading room for those who prefer peaceful study environments.</p>
+        <img src="{% static 'images/lib.jpg' %}" alt="Library">
+    </div>
+
+    <div class="section">
+        <h2>Beautiful Garden and Green Spaces</h2>
+        <p>The campus is surrounded by lush green gardens and landscaped areas that provide a serene environment for relaxation and study. The well-maintained <span class="highlight">botanical garden</span> features a variety of plants and trees, contributing to the overall aesthetic appeal of the institution.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Garden+Image" alt="Campus Garden">
+    </div>
+
+    <div class="section">
+        <h2>Playground and Sports Facilities</h2>
+        <p>Geethanjali Institute believes in the holistic development of students. The campus features a large playground for various sports such as cricket, football, and athletics. In addition, there are indoor sports facilities for <span class="highlight">badminton, table tennis</span>, and chess, allowing students to pursue their athletic passions.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Playground+Image" alt="Playground">
+    </div>
+
+    <div class="section">
+        <h2>Efficient Bus Facility</h2>
+        <p>The institute provides a comprehensive transportation service for students and faculty members. With a fleet of over <span class="highlight">20 buses</span>, the service covers major parts of the city and surrounding areas, ensuring that everyone can commute comfortably and safely.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Bus+Facility+Image" alt="Bus Facility">
+    </div>
+
+    <div class="section">
+        <h2>Dedicated Placement Cell</h2>
+        <p>The <span class="highlight">Placement Cell</span> at Geethanjali Institute is highly active, with a dedicated team that works tirelessly to connect students with top recruiters. With a focus on employability, the cell provides training sessions, workshops, and career guidance, ensuring that students are well-prepared to enter the workforce. The placement cell has successfully placed students in reputed companies like <span class="highlight">TCS, Infosys, Wipro, and Cognizant</span>.</p>
+        <img src="https://via.placeholder.com/1000x300?text=Placement+Cell+Image" alt="Placement Cell">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Geethanjali Institute of Science and Technology | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
